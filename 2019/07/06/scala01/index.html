@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://huangzhchn.github.io">
-  <title>&#39;test&#39; | Huangzh的个人博客|Over.</title>
+  <title>Scala��һ����������������ѭ������Ķ��壬���캯���� | Huangzh的个人博客|Over.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;test&#39;">
-<meta property="og:url" content="http://huangzhchn.github.io/2019/07/01/test/index.html">
+  <meta name="description" content="�������var �ɱ����val ���ɱ����   Scala����������ǿ����Զ��Ƶ���val a = 10val b = 20val c = “aaa”val d = new User()   Scala�Ļ�����������Byte Char Short Int Long Float Double Boolean …..">
+<meta name="keywords" content="scala">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala��һ����������������ѭ������Ķ��壬���캯����">
+<meta property="og:url" content="http://huangzhchn.github.io/2019/07/06/scala01/index.html">
 <meta property="og:site_name" content="Huangzh的个人博客|Over.">
+<meta property="og:description" content="�������var �ɱ����val ���ɱ����   Scala����������ǿ����Զ��Ƶ���val a = 10val b = 20val c = “aaa”val d = new User()   Scala�Ļ�����������Byte Char Short Int Long Float Double Boolean …..">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-07-01T14:28:39.559Z">
+<meta property="og:updated_time" content="2019-07-06T15:36:11.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;test&#39;">
+<meta name="twitter:title" content="Scala��һ����������������ѭ������Ķ��壬���캯����">
+<meta name="twitter:description" content="�������var �ɱ����val ���ɱ����   Scala����������ǿ����Զ��Ƶ���val a = 10val b = 20val c = “aaa”val d = new User()   Scala�Ļ�����������Byte Char Short Int Long Float Double Boolean …..">
   
     <link rel="alternative" href="/atom.xml" title="Huangzh的个人博客|Over." type="application/atom+xml">
   
@@ -151,27 +155,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-scala01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      &#39;test&#39;
+      Scala��һ����������������ѭ������Ķ��壬���캯����
     </h1>
   
 
         
-        <a href="/2019/07/01/test/" class="archive-article-date">
-  	<time datetime="2019-07-01T14:28:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-01</time>
+        <a href="/2019/07/06/scala01/" class="archive-article-date">
+  	<time datetime="2019-07-06T15:33:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="�������"><a href="#�������" class="headerlink" title="�������"></a>�������</h2><p>var �ɱ����<br>val ���ɱ����  </p>
+<p>Scala����������ǿ����Զ��Ƶ���<br>val a = 10<br>val b = 20<br>val c = “aaa”<br>val d = new User()  </p>
+<p>Scala�Ļ�����������<br>Byte Char Short Int Long Float Double Boolean …..</p>
+<a id="more"></a>
+
+<p>asInstanceOf ����ת��  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val a:Int = 10</span><br><span class="line">a: Int = 10</span><br><span class="line"></span><br><span class="line">scala&gt; a.asInstanceOf[Double]</span><br><span class="line">res7: Double = 10.0</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">isInstanceOf �ж�����</span><br></pre></td></tr></table></figure>
+
+<p>scala&gt; val a:Double = 10d<br>a: Double = 10.0</p>
+<p>scala&gt; a.isInstanceOf[Int]<br>res8: Boolean = false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## ���庯��������</span><br></pre></td></tr></table></figure>
+
+<p>   def max(x: Int, y: Int): Int = {<br>    if (x &gt; y) {<br>      x<br>    } else {<br>      y<br>    }<br>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def�����庯���Ĺؼ���  </span><br><span class="line">max�����庯�������ƣ�ͨ�׼���֪���  </span><br><span class="line">(x: Int, y: Int)����������ο���û�У�������֮���ö��ŷָ���ÿ���������壨�������ƣ��������ͣ�  </span><br><span class="line">:Int����������ֵ���ͣ��ɼ�дScala�Զ��Ƶ����޷���ֵΪ:Unit  </span><br><span class="line">&#123;...&#125;��������֮���Ϊ�����壬����������һ�д���Ϊ����ֵ</span><br><span class="line"></span><br><span class="line">## ѭ��</span><br><span class="line">1��10  </span><br><span class="line">Range.Inclusive,������ģ���ͷ��β</span><br></pre></td></tr></table></figure>
+
+<p>scala&gt; 1 to 10<br>res9: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Range(��ʼλ������λ������)  </span><br><span class="line">until��������Ϊ1��Range��һ����˼</span><br></pre></td></tr></table></figure>
+
+<p>scala&gt; Range(1,10)<br>res10: scala.collection.immutable.Range = Range(1, 2, 3, 4, 5, 6, 7, 8, 9)</p>
+<p>scala&gt; Range(1,10,1)<br>res11: scala.collection.immutable.Range = Range(1, 2, 3, 4, 5, 6, 7, 8, 9)</p>
+<p>scala&gt; Range(10,1,-1)<br>res12: scala.collection.immutable.Range = Range(10, 9, 8, 7, 6, 5, 4, 3, 2)</p>
+<p>scala&gt; Range(1,10,0)<br>java.lang.IllegalArgumentException: step cannot be 0.<br>  at scala.collection.immutable.Range.<init>(Range.scala:86)<br>  at scala.collection.immutable.Range$.apply(Range.scala:439)<br>  … 32 elided</init></p>
+<p>scala&gt; 1 until 10<br>res15: scala.collection.immutable.Range = Range(1, 2, 3, 4, 5, 6, 7, 8, 9)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forѭ�����</span><br></pre></td></tr></table></figure>
+
+<p>for (i &lt;- Range(1,10,1)){<br>      println(i)<br>}</p>
+<p>//���1-10֮���ż��<br>for (i &lt;- Range(1,10,1) if(i%2 == 0)){<br>      println(i)<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## ����</span><br><span class="line">_:��ʾռλ������ʼ���ɱ����ʹ�ã�ʹ��ռλ�����붨���������  </span><br><span class="line">private[this]�����÷������η���this����ֻ��������ڲ�ʹ��</span><br></pre></td></tr></table></figure>
+
+<p>class SparkConf {<br>  private[this] var master: String = _<br>  private[this] var appName: String = “”</p>
+<p>  def setMaster(master: String): SparkConf = {<br>    this.master = master<br>    this<br>  }</p>
+<p>  def setAppNmae(appName: String): SparkConf = {<br>    this.appName = appName<br>    this<br>  }</p>
+<p>  def printInfo(): Unit = {<br>    println(“Master:” + this.master + “appName:” + this.appName)<br>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spark Դ���</span><br></pre></td></tr></table></figure>
+
+<p>package com.huangzh.bigdata.scala01</p>
+<p>import java.util.concurrent.ConcurrentHashMap</p>
+<p>object SparkConfApp {<br>  def main(args: Array[String]): Unit = {<br>    var sparkConf = new SparkConf().setMaster(“yarn”).setAppNmae(“World Count”)<br>    sparkConf.printInfo()<br>  }<br>}</p>
+<p>class SparkConf {<br>  private[this] var setting = new ConcurrentHashMap<a href>String,String</a></p>
+<p>  def setMaster(master: String): SparkConf = {<br>    set(“spark.master”,master)<br>  }</p>
+<p>  def setAppNmae(appName: String): SparkConf = {<br>    set(“spark.app.name”,appName)<br>  }</p>
+<p>  private[this] def set(key:String,value:String): SparkConf ={<br>    this.setting.put(key,value)<br>    this<br>  }</p>
+<p>  def printInfo(): Unit = {<br>    println(“Master:” + this.setting.get(“spark.master”) + “ AppName:” + this.setting.get(“spark.app.name”))<br>  }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## ���캯��</span><br><span class="line">�����캯������Class���������棬��εı������������Զ������������</span><br><span class="line">�������캯���ĵ�һ�б�����������캯���������������캯��</span><br></pre></td></tr></table></figure>
+
+<p>package com.huangzh.bigdata.scala01</p>
+<p>object SparkConfApp {<br>  def main(args: Array[String]): Unit = {<br>    var sparkConf = new SparkConf(“yarn”, “WorldCount”)<br>    sparkConf.printInfo()</p>
+<pre><code>var sparkConf2 = new SparkConf(&quot;yarn&quot;, &quot;WorldCount&quot;, &quot;/home/jars&quot;)
+sparkConf2.printInfo()</code></pre><p>  }<br>}</p>
+<p>class SparkConf(master: String, appName: String) {<br>  var extra: String = _<br>  //�������캯��<br>  def this(master: String, appName: String, extra: String) {<br>    this(master, appName)<br>    this.extra = extra<br>  }</p>
+<p>  def printInfo(): Unit = {<br>    println(“Master:” + this.master + “ AppName:” + this.appName + “ extra:” + this.extra)<br>  }<br>}</p>
+<pre><code>
+
+
+
+</code></pre>
       
 
       
@@ -210,6 +269,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">scala</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -223,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/01/newpage/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          newpage
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/07/06/companytest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">companytest</div>
       <i class="icon-circle-right"></i>
     </a>
   
