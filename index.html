@@ -152,6 +152,135 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-scala02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/15/scala02/">Scala第一讲（继承，特质，包和引入）</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/15/scala02/" class="archive-article-date">
+  	<time datetime="2019-07-15T15:00:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
+<li><p>使用extends关键字继承父类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.huangzh.bigdata.scala01</span><br><span class="line"></span><br><span class="line">object Scala02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person: Employee = new Employee</span><br><span class="line">    person.name = &quot;hzh&quot;</span><br><span class="line">    person.salary = 1000000.0</span><br><span class="line">    print(person.name + &quot; salary:&quot; + person.salary)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">  var salary = 0.0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Employee extends Person &#123;</span><br><span class="line">  var name: String = _</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写方法<br>重写一个非抽象方法必须使用override修饰符<br>调用超类的方法与Java一样使用super关键字  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package com.huangzh.bigdata.scala01</span><br><span class="line"></span><br><span class="line">object Scala02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person: Employee = new Employee</span><br><span class="line">    person.name = &quot;hzh&quot;</span><br><span class="line">    person.salary = 1000000.0</span><br><span class="line">    println(person.name + &quot; salary:&quot; + person.salary)</span><br><span class="line">    person.showSalary</span><br><span class="line">    println(person.toString)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">  var salary = 0.0</span><br><span class="line"></span><br><span class="line">  def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;My Salary:&quot; + salary);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Employee extends Person &#123;</span><br><span class="line">  var name: String = _</span><br><span class="line"></span><br><span class="line">  override def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;Secret!!!!&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def toString: String = s&quot;$&#123;super.toString&#125;&#123;name=$name&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类型转换和检查<br>与类型检查和转换相比，模式匹配的功能更加强大，后期会详细说明  </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Scala</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>obj.isInstanceOf[Cl]</td>
+<td>obj instanceof Cl</td>
+</tr>
+<tr>
+<td>obj.asInstanceOf[Cl]</td>
+<td>(Cl) obj</td>
+</tr>
+<tr>
+<td>classOf[Cl]</td>
+<td>Cl.class</td>
+</tr>
+<tr>
+<td>4. 受保护字段和方法</td>
+<td></td>
+</tr>
+<tr>
+<td>和Java一样可以使用protected，这样的成员可以被子类访问，但不能从其他位置看到</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package com.huangzh.bigdata.scala01</span><br><span class="line"></span><br><span class="line">object Scala02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person: Employee = new Employee</span><br><span class="line">    person.name = &quot;hzh&quot;</span><br><span class="line">    person.salary = 1000000.0</span><br><span class="line">    println(person.name + &quot; salary:&quot; + person.salary)</span><br><span class="line">    person.showSalary</span><br><span class="line">    person.age //age无法被使用，编译报错</span><br><span class="line">    println(person.toString)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">  var salary = 0.0</span><br><span class="line">  protected val age:Int = 0</span><br><span class="line">  def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;My Salary:&quot; + salary);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Employee extends Person &#123;</span><br><span class="line">  var name: String = _</span><br><span class="line">  override protected val age: Int = 20</span><br><span class="line">  override def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;Secret!!!!&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def toString: String = s&quot;$&#123;super.toString&#125;&#123;name=$name&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+</tbody></table>
+<ol start="5">
+<li><p>超类的构造<br>前一讲说过所有附属构造器都必须调用主构造器或者其他附属构造器，而只有主构造器才能调用附属构造器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package com.huangzh.bigdata.scala01</span><br><span class="line"></span><br><span class="line">object Scala02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person: Employee = new Employee(24,&quot;zwx&quot;)</span><br><span class="line">    person.name = &quot;hzh&quot;</span><br><span class="line">    person.salary = 1000000.0</span><br><span class="line">    println(person.name + &quot; salary:&quot; + person.salary)</span><br><span class="line">    person.showSalary</span><br><span class="line">    println(person.toString)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person(age:Int) &#123;</span><br><span class="line">  var salary = 0.0</span><br><span class="line"></span><br><span class="line">  def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;My Salary:&quot; + salary);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Employee(age:Int) extends Person(age) &#123;</span><br><span class="line">  def this(age:Int,empName:String)&#123;</span><br><span class="line">    this(age)</span><br><span class="line">    name = &quot;None&quot;</span><br><span class="line">    println(&quot;EmpName:&quot;+empName+&quot; Name:&quot;+name+&quot; Age:&quot;+age)</span><br><span class="line">  &#125;</span><br><span class="line">  var name: String = _</span><br><span class="line">  override def showSalary: Unit = &#123;</span><br><span class="line">    println(&quot;Secret!!!!&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def toString: String = s&quot;$&#123;super.toString&#125;&#123;name=$name&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写字段<br>def只能重写另一个def<br>val只能重写另一个val或者def<br>var只能重写另一个抽象的var  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">abstract class A &#123;</span><br><span class="line">  def id: Int</span><br><span class="line">  def name: String</span><br><span class="line">  var age: Int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class A1 extends A &#123;</span><br><span class="line">  override def id: Int = 1</span><br><span class="line">  override val name: String = &quot;huangzh&quot;</span><br><span class="line">  override var age: Int = 24</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匿名子类<br>Scala可以直接在new对象时使用代码块创建一个匿名子类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person2 = new Person(24)&#123;</span><br><span class="line">      val name:String = &quot;hzh&quot;</span><br><span class="line">      def showName:Unit =&#123;</span><br><span class="line">        println(name);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    person2.showName</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抽象类<br>和Java一样，使用abstract关键字标记不能被实例化的类<br>抽象方法：没有具体实现<br>抽象字段：没有具体实例<br>实现抽象方法和抽象字段可以不使用override标识<br>子类必须实现所有抽象方法和抽象字段</p>
+</li>
+</ol>
+<h2 id="特质"><a href="#特质" class="headerlink" title="特质"></a>特质</h2><p>未完待续…</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">scala</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/15/scala02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-scala01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
