@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://huangzhchn.github.io">
-  <title>Scala第一讲（继承，特质，包和引入） | John Huang的个人博客|Over.</title>
+  <title>Scala第二讲（继承，特质，包和引入） | John Huang的个人博客|Over.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="继承 使用extends关键字继承父类 123456789101112131415161718package com.huangzh.bigdata.scala01object Scala02 &amp;#123;  def main(args: Array[String]): Unit = &amp;#123;    var person: Employee = new Employee    person.n">
+  <meta name="description" content="继承 使用extends关键字继承父类">
 <meta name="keywords" content="scala">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Scala第一讲（继承，特质，包和引入）">
+<meta property="og:title" content="Scala第二讲（继承，特质，包和引入）">
 <meta property="og:url" content="http://huangzhchn.github.io/2019/07/15/scala02/index.html">
 <meta property="og:site_name" content="John Huang的个人博客|Over.">
-<meta property="og:description" content="继承 使用extends关键字继承父类 123456789101112131415161718package com.huangzh.bigdata.scala01object Scala02 &amp;#123;  def main(args: Array[String]): Unit = &amp;#123;    var person: Employee = new Employee    person.n">
+<meta property="og:description" content="继承 使用extends关键字继承父类">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-07-15T15:02:05.241Z">
+<meta property="og:updated_time" content="2019-07-15T15:04:48.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scala第一讲（继承，特质，包和引入）">
-<meta name="twitter:description" content="继承 使用extends关键字继承父类 123456789101112131415161718package com.huangzh.bigdata.scala01object Scala02 &amp;#123;  def main(args: Array[String]): Unit = &amp;#123;    var person: Employee = new Employee    person.n">
+<meta name="twitter:title" content="Scala第二讲（继承，特质，包和引入）">
+<meta name="twitter:description" content="继承 使用extends关键字继承父类">
   
     <link rel="alternative" href="/atom.xml" title="John Huang的个人博客|Over." type="application/atom+xml">
   
@@ -162,7 +162,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Scala第一讲（继承，特质，包和引入）
+      Scala第二讲（继承，特质，包和引入）
     </h1>
   
 
@@ -177,6 +177,7 @@
       
         <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ol>
 <li><p>使用extends关键字继承父类</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.huangzh.bigdata.scala01</span><br><span class="line"></span><br><span class="line">object Scala02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    var person: Employee = new Employee</span><br><span class="line">    person.name = &quot;hzh&quot;</span><br><span class="line">    person.salary = 1000000.0</span><br><span class="line">    print(person.name + &quot; salary:&quot; + person.salary)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">  var salary = 0.0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Employee extends Person &#123;</span><br><span class="line">  var name: String = _</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重写方法<br>重写一个非抽象方法必须使用override修饰符<br>调用超类的方法与Java一样使用super关键字  </p>
